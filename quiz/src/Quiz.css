@@ -1,15 +1,38 @@
 body{
     background-color: #FDB833;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .Button{
     background-color: #FFD07B;
     border: solid 2px #B1740F;
-    border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
+    width: 30%;
     margin: 10px;
+    font-size: 20px;
+}
+p
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+input
+{
+    padding: 10px;
+    width: 20%;
+    font-size: 15px;
 }
 
 #wynik{
     display: none;
+}
+.Quiz
+{
+    border-top: #296EB4 solid 5px;
+    border-bottom: #296EB4 solid 5px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 200px;
+
+
 }

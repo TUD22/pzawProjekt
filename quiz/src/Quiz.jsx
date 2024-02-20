@@ -5,24 +5,28 @@ import './Quiz.css'
 function Quiz() {
 
     const pio=[{
-        pytanie: 'ile',
-        odpowiedz: 'tyle'
+        pytanie: 'W którym roku powstała gra Heores of Might and Magic 3?',
+        odpowiedz: '1999'
     },
     {
-        pytanie: 'a',
-        odpowiedz: 'a'
+        pytanie: 'Kogo nienawidzą Giganci?',
+        odpowiedz: 'Czarnych Smoków'
     },
     {
-        pytanie: 'b',
-        odpowiedz: 'b'
+        pytanie: 'Jakie Jednostki produkuje dworek?',
+        odpowiedz: 'Wampiry'
     },
     {
-        pytanie: 'c',
-        odpowiedz: 'c'
+        pytanie: 'Ile złota dziennie dostarcza kapitol?',
+        odpowiedz: '4000'
     },
     {
-        pytanie: 'd',
-        odpowiedz: 'd'
+        pytanie: 'Ilu maksymalnie graczy może grać na jednej mapie?',
+        odpowiedz: '8'
+    },
+    {
+        pytanie: 'Ile kosztuje księga czarów?',
+        odpowiedz: '500'
     }
 ]
 
@@ -33,16 +37,14 @@ function Quiz() {
     const [pytanie, setPytanie] = useState(pio[licznik])
 
     function nastepnePytanie(){
-        console.log(licznik)
-        setPytanie(pio[licznik])
-        if(licznik<4){
-            if (pytanie.odpowiedz == odpowiedz.target.value) {
-                setPunkty(punkty+1)
-            }
+        if ((pytanie.odpowiedz).toUpperCase() == (odpowiedz.target.value).toUpperCase() && licznik <5) {
+            setPunkty(punkty+1)
+        }
+        if(licznik<5){
             setLicznik(licznik+1)
         }
-        if(licznik==4){
-            document.getElementById('wynik').style.display='block';
+        if(licznik==5){
+            document.getElementById('wynik').style.display='block'
         }
         
     }
