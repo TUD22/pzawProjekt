@@ -37,7 +37,7 @@ function Quiz() {
     const [pytanie, setPytanie] = useState(pio[licznik])
 
     function nastepnePytanie(){
-        if ((pytanie.odpowiedz).toUpperCase() == (odpowiedz.target.value).toUpperCase() && licznik <5) {
+        if ((pytanie.odpowiedz).toUpperCase() == (odpowiedz.target.value).toUpperCase() && licznik <=5) {
             setPunkty(punkty+1)
         }
         if(licznik<5){
@@ -45,13 +45,15 @@ function Quiz() {
         }
         if(licznik==5){
             document.getElementById('wynik').style.display='block'
+            document.getElementById('check').style.display='none'
+            document.getElementById('input').style.display='none'
         }
-        
+        document.getElementById('input').value=''
     }
     
     useEffect(()=>{
-        setPytanie(pio[licznik]);
         setWynik(punkty)
+        setPytanie(pio[licznik])
     })
 
     function start(){
@@ -59,14 +61,16 @@ function Quiz() {
         setWynik('')
         setPunkty(0)
         document.getElementById('wynik').style.display='none'
+        document.getElementById('check').style.display='inline'
+        document.getElementById('input').style.display='inline'
 
     }
   return (
     <div className="Quiz">
-      <button  className='Button' onClick={start}>Rozpocznij grę</button>
+      <button className='Button' onClick={start}>Rozpocznij grę</button>
       <Pytanie pytanie={pytanie.pytanie}/>
-      <input onChange={setOdpowiedz}/><br/>
-      <button className='Button' onClick={nastepnePytanie}>Sprawdź odpowiedź </button>
+      <input id='input' onChange={setOdpowiedz}/><br/>
+      <button className='Button'  id='check' onClick={nastepnePytanie}>Sprawdź odpowiedź </button>
       <div id='wynik'>
         Twój winik to: {wynik}
       </div>
